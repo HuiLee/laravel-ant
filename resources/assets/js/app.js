@@ -19,55 +19,54 @@
 // });
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Menu, Breadcrumb, Icon,Table} from 'antd';
+import {Menu, Breadcrumb, Icon, Table} from 'antd';
 import Layout from './components/layout.jsx';
 
 const columns = [{
-  title: '姓名',
+  title    : '姓名',
   dataIndex: 'name',
-  key: 'name',
-  render: (text) => <a href="#">{text}</a>,
+  key      : 'name',
+  render   : (text) => <a href="#">{text}</a>,
 }, {
-  title: '年龄',
+  title    : '年龄',
   dataIndex: 'age',
-  key: 'age',
+  key      : 'age',
 }, {
-  title: '住址',
+  title    : '住址',
   dataIndex: 'address',
-  key: 'address',
+  key      : 'address',
 }, {
-  title: '操作',
-  key: 'operation',
+  title : '操作',
+  key   : 'operation',
   render: (text, record) => (
     <span>
       <a href="#">操作一{record.name}</a>
-      <span className="ant-divider" />
+      <span className="ant-divider"/>
       <a href="#">操作二</a>
-      <span className="ant-divider" />
+      <span className="ant-divider"/>
       <a href="#" className="ant-dropdown-link">
-        更多 <Icon type="down" />
+        更多 <Icon type="down"/>
       </a>
     </span>
   ),
 }];
 
 const data = [{
-  key: '1',
-  name: '胡彦斌',
-  age: 32,
+  key    : '1',
+  name   : '胡彦斌',
+  age    : 32,
   address: '西湖区湖底公园1号',
 }, {
-  key: '2',
-  name: '胡彦祖',
-  age: 42,
+  key    : '2',
+  name   : '胡彦祖',
+  age    : 42,
   address: '西湖区湖底公园1号',
 }, {
-  key: '3',
-  name: '李大嘴',
-  age: 32,
+  key    : '3',
+  name   : '李大嘴',
+  age    : 32,
   address: '西湖区湖底公园1号',
 }];
-
 
 
 const AsideCollapse = React.createClass({
@@ -86,26 +85,30 @@ const AsideCollapse = React.createClass({
     return (
       <div className={collapse ? "ant-layout-aside ant-layout-aside-collapse" : "ant-layout-aside"}>
         <aside className="ant-layout-sider">
-          <div className="ant-layout-logo"></div>
-          <Menu mode="inline" theme="dark" defaultSelectedKeys={['user']}>
+          <div className="ant-layout-logo">
+            {collapse ? '淘' : '淘宝网'}
+          </div>
+          <Menu mode="inline" theme="dark" defaultSelectedKeys={['user']} onClick={(item,key,keyPath)=>{
+            console.log(keyPath);
+          }}>
             <Menu.Item key="user">
-              <Icon type="user" /><span className="nav-text">用户管理</span>
-            </Menu.Item>
-            <Menu.Item key="setting">
-              <Icon type="setting" /><span className="nav-text">系统设置</span>
+              <Icon type="user"/><span className="nav-text">用户管理</span>
             </Menu.Item>
             <Menu.Item key="laptop">
-              <Icon type="laptop" /><span className="nav-text">商品管理</span>
+              <Icon type="laptop"/><span className="nav-text">门店管理</span>
             </Menu.Item>
             <Menu.Item key="notification">
-              <Icon type="notification" /><span className="nav-text">消息通知</span>
+              <Icon type="notification"/><span className="nav-text">订单管理</span>
             </Menu.Item>
             <Menu.Item key="folder">
-              <Icon type="pie-chart" /><span className="nav-text">统计报表</span>
+              <Icon type="pie-chart"/><span className="nav-text">评论管理</span>
+            </Menu.Item>
+            <Menu.Item key="setting">
+              <Icon type="setting"/><span className="nav-text">系统设置</span>
             </Menu.Item>
           </Menu>
           <div className="ant-aside-action" onClick={this.onCollapseChange}>
-            {collapse ? <Icon type="right" /> : <Icon type="left" />}
+            {collapse ? <Icon type="right"/> : <Icon type="left"/>}
           </div>
         </aside>
         <div className="ant-layout-main">
@@ -120,12 +123,12 @@ const AsideCollapse = React.createClass({
           <div className="ant-layout-container">
             <div className="ant-layout-content">
               <div>
-                <Table columns={columns} dataSource={data} />
+                <Table columns={columns} dataSource={data}/>
               </div>
             </div>
           </div>
           <div className="ant-layout-footer">
-            Ant Design 版权所有 © 2015 由蚂蚁金服体验技术部支持
+             <p>版权所有 © 2016</p>
           </div>
         </div>
       </div>
