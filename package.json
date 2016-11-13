@@ -26,5 +26,14 @@
     "antd": "^1.11.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1"
-  }
+  },
+  "name": "laravel-ant",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/HuiLee/laravel-ant.git",
+    "type": "git"
+  },
+  "author": "Hui Lee <lihui870920@gmail.com>",
+  "license": "MIT"
 }
